@@ -1,0 +1,24 @@
+/*** General ***/
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+/*** Header & Navigation ***/
+#mainNav {
+    margin-top: -10px;
+}
+
+a.navbar-brand {
+    margin-top: 10px;
+}
+
+/*** Game Section ***/
+#gameSection {
+    padding-top: 70px;
+    background: #A0E7AF;
+    height: 100%;
+    width: 100%;
+    
+}
