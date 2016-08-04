@@ -20,17 +20,36 @@ a.navbar-brand {
     width: 100%;
     padding-top: 70px;
     background: #A0E7AF;
+    perspective: 1000px;
 }
 
-.img-container {
+.card-container {
     display: block;
     height: 150px;
     width: 200px;
     background: #fff;
     margin: 20px;
+    transform-style: preserve-3d;
+    
 }
 
-.img-container > img {
+.card-container > img.back,
+.card-container > div.front {
     height: inherit;
     width: inherit;
+    backface-visibility: hidden;
 }
+
+div.front {
+    background: #333;
+}
+
+img.back {
+    transform: rotateY(180deg);
+    transition: transform 1s;
+}
+
+.card-container:hover div.front {
+    transform: rotateY(180deg);
+}
+

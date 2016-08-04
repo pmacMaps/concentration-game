@@ -40,12 +40,12 @@ var rowContainer = $('#rowContainer');
 
 // add first random array of images to container
 for (var i = 0; i < photosArray1.length; i++) {
-    rowContainer.append('<div class="col-md-3 img-container"><img alt="mckinney family" src="' + photosArray1[i] + '" /></div>');    
+    rowContainer.append('<div class="col-md-3 card-container"><div class="front"></div><img class="back" alt="mckinney family" src="' + photosArray1[i] + '" /></div>');    
 }
 
 // add second random array of images to container
 for (var i = 0; i < photosArray2.length; i++) {
-    rowContainer.append('<div class="col-md-3 img-container"><img alt="mckinney family" src="' + photosArray2[i] + '" /></div>');    
+    rowContainer.append('<div class="col-md-3 card-container"><div class="front"></div><img class="back" alt="mckinney family" src="' + photosArray1[i] + '" /></div>');       
 }     
 
 // need images to be flipped to other side
