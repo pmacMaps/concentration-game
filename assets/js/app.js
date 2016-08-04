@@ -49,11 +49,34 @@ for (var i = 0; i < photosArray2.length; i++) {
 }     
 
 var cardContainer = $('.card-container');
+var displayedImages = [];
+
+// Only want 2 images in the array at a time
+// only want to add an image (run a function) if the image display is set to block
+// // this prevents the same image being added twice
+// with 2 images in array, test if they are the same
+   // if so, do some cool animationt to make the disappear
+   // if not, set display to none again and reset array
+function testImageFileName(img) {
+    if (displayedImages.length < 2) {
+        displayedImages.push(img.attr('src'));
+        console.log(displayedImages);
+    } else {
+      while (displayedImages.length > 0) {
+            displayedImages.pop();
+      }
+    
+      displayedImages.push(img.attr('src'));
+      console.log(displayedImages);
+    }
+}
 
 cardContainer.click(function() {
    //$(this).children('.top').fadeToggle();
    //$(this).children('.bottom').fadeToggle();
-    $(this).children().fadeToggle();   
+    $(this).children().fadeToggle();
+    var img = $(this).children('.bottom');
+    testImageFileName(img);
 });
 
 
