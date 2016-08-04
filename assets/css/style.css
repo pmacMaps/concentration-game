@@ -20,36 +20,35 @@ a.navbar-brand {
     width: 100%;
     padding-top: 70px;
     background: #A0E7AF;
-    perspective: 1000px;
-}
+}    
 
-.card-container {
+.card-container,
+.top,
+.bottom {
     display: block;
     height: 150px;
     width: 200px;
-    background: #fff;
+}
+
+.card-container {
     margin: 20px;
-    transform-style: preserve-3d;
-    
 }
 
-.card-container > img.back,
-.card-container > div.front {
-    height: inherit;
-    width: inherit;
-    backface-visibility: hidden;
+top,
+.bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-div.front {
+.top {
     background: #333;
+    /*z-index: 1000;*/
 }
 
-img.back {
-    transform: rotateY(180deg);
-    transition: transform 1s;
+.bottom {
+   display: none;
 }
 
-.card-container:hover div.front {
-    transform: rotateY(180deg);
-}
+
 

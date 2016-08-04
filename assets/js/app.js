@@ -40,20 +40,21 @@ var rowContainer = $('#rowContainer');
 
 // add first random array of images to container
 for (var i = 0; i < photosArray1.length; i++) {
-    rowContainer.append('<div class="col-md-3 card-container"><div class="front"></div><img class="back" alt="mckinney family" src="' + photosArray1[i] + '" /></div>');    
+    rowContainer.append('<div class="col-md-3 card-container"><div class="top"></div><img class="bottom" alt="mckinney family" src="' + photosArray1[i] + '" /></div>');    
 }
 
 // add second random array of images to container
 for (var i = 0; i < photosArray2.length; i++) {
-    rowContainer.append('<div class="col-md-3 card-container"><div class="front"></div><img class="back" alt="mckinney family" src="' + photosArray1[i] + '" /></div>');       
+    rowContainer.append('<div class="col-md-3 card-container"><div class="top"></div><img class="bottom" alt="mckinney family" src="' + photosArray1[i] + '" /></div>');     
 }     
 
-// need images to be flipped to other side
-// // need to create element for this side
-// need to create click event to perform transform
-// need to test for images turned over have save src attribute
-// if so, add message or something and remove them (fancy hide)
+var cardContainer = $('.card-container');
 
+cardContainer.click(function() {
+   //$(this).children('.top').fadeToggle();
+   //$(this).children('.bottom').fadeToggle();
+    $(this).children().fadeToggle();   
+});
 
 
 
