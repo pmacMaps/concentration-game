@@ -57,19 +57,40 @@ var displayedImages = [];
 // with 2 images in array, test if they are the same
    // if so, do some cool animationt to make the disappear
    // if not, set display to none again and reset array
-function testImageFileName(img) {
+
+// helper function to empty array
+function emptyImgArray() {
+    while (displayedImages.length > 0) {
+        displayedImages.pop();
+    }
+}
+
+// helper function to add images to array
+function addImgToArray(img) {
     if (displayedImages.length < 2) {
         displayedImages.push(img.attr('src'));
         console.log(displayedImages);
-    } else {
-      while (displayedImages.length > 0) {
-            displayedImages.pop();
-      }
-    
-      displayedImages.push(img.attr('src'));
-      console.log(displayedImages);
-    }
+    } 
 }
+
+// test image file names and do something if they match
+function testImageFileName() {
+    if (displayedImages.length === 2) {
+        if (displayedImages[0] === displayedImages[1]) {
+            console.log('images match. Do something cool!');
+            // add a score or message in footer or header?
+            emptyImgArray();
+        } else {
+            console.log('images do not match. Sorry!');
+            // toggle display of images that are displayed
+            // toggle their sibling as well
+            emptyImgArray();
+        }
+    } else {
+        console.log('Length of image array is ' + displayedImages.length);
+    }     
+}
+
 
 cardContainer.click(function() {
     var img = $(this).children('.bottom');
@@ -81,7 +102,8 @@ cardContainer.click(function() {
    // if img is displayed, add to array
    // if not, do nothing (log message for testing)    
    if (img.css('display') === 'block') {
-      testImageFileName(img);
+       addImgToArray(img);
+       testImageFileName();
     } else {
       console.log('img display property is ' + img.css('display'));
     }
@@ -89,6 +111,3 @@ cardContainer.click(function() {
     // toggle display for mask
     mask.fadeToggle();    
 });
-
-
-
