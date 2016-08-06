@@ -72,11 +72,22 @@ function testImageFileName(img) {
 }
 
 cardContainer.click(function() {
-   //$(this).children('.top').fadeToggle();
-   //$(this).children('.bottom').fadeToggle();
-    $(this).children().fadeToggle();
     var img = $(this).children('.bottom');
-    testImageFileName(img);
+    var mask = $(this).children('.top');
+   
+    // toggle display for img
+    img.toggle();
+   
+   // if img is displayed, add to array
+   // if not, do nothing (log message for testing)    
+   if (img.css('display') === 'block') {
+      testImageFileName(img);
+    } else {
+      console.log('img display property is ' + img.css('display'));
+    }
+    
+    // toggle display for mask
+    mask.fadeToggle();    
 });
 
 
